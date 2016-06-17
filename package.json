@@ -1,6 +1,6 @@
 {
   "name": "ruff-v1-infrared-receiver",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Driver for Infrared Receiver.",
   "author": "Nanchao Inc.",
   "license": "MIT",
