@@ -13,9 +13,9 @@ module.exports = new Driver({
         var that = this;
         this._receiver = new Receiver();
         this._receiver.open(11, function (error, integers) {
-            if(error) {
+            if (error) {
                  // eslint-disable-next-line no-console
-                 console.log(error);
+                console.log(error);
             } else {
                 that.emit('data', integers);
             }
@@ -23,6 +23,7 @@ module.exports = new Driver({
     },
 
     detach: function () {
-        this._receiver.close(function(){});
+        this._receiver.close(function () {
+        });
     }
 });

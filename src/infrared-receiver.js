@@ -43,7 +43,6 @@ InfraredReceiver.prototype._startRead = function () {
 
     this._file.on('data', function (data) {
         var signal = data;
-        console.log('receive data...');
         signals = Buffer.concat([signals, new Buffer(signal)]);
         if (that._intervalHandle) {
             return;
@@ -52,13 +51,11 @@ InfraredReceiver.prototype._startRead = function () {
             if (elasped > SIGNAL_DURATION && siglen === signals.length) {
                 if (signals.length < 4 * 10) {
                     // noise
-                    console.log('noise');
                 } else if (!(signals.length & 3) && that._recvCallback) {
                     var intsOfKey = signalToIntegers(signals);
                     that._recvCallback(undefined, intsOfKey);
                 } else {
                     // broken data
-                    console.log('broken data');
                 }
                 clearInterval(that._intervalHandle);
                 that._intervalHandle = null;
