@@ -8,22 +8,22 @@
 var Driver = require('ruff-driver');
 var Receiver = require('./infrared-receiver.js');
 
-module.exports = new Driver({
+var PIN = 11;
+
+module.exports = driver({
     attach: function () {
         var that = this;
         this._receiver = new Receiver();
-        this._receiver.open(11, function (error, integers) {
+        this._receiver.open(PIN, function (error, data) {
             if (error) {
-                 // eslint-disable-next-line no-console
-                console.log(error);
-            } else {
-                that.emit('data', integers);
+                that.emit('error', error);
+                return;
             }
+
+            that.emit('data', data);
         });
     },
-
-    detach: function () {
-        this._receiver.close(function () {
-        });
+    detach: function (done) {
+        this._receiver.close(done);
     }
 });

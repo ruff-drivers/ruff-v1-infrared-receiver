@@ -6,11 +6,11 @@ This module can be used to receive infrared signals.
 
 ## Supported Engines
 
-* Ruff: 1.2.0
+* Ruff: ~1.2.0
 
 ## Supported Models
 
-- [IRR-01](https://rap.ruff.io/devices/irr-01)
+- [irr-01](https://rap.ruff.io/devices/irr-01)
 
 ## Installing
 
@@ -22,7 +22,7 @@ Execute following command and enter a **supported model** to install.
 rap device add <device-id>
 
 # Then enter a supported model, for example:
-# ? model: IRR-01
+# ? model: irr-01
 ```
 
 ## Usage
@@ -31,8 +31,8 @@ Here is the basic usage of this driver.
 
 ```js
 $('#<device-id>').on('data', function(data) {
-        console.log('received data is' + data);
-    });
+    console.log('received data', data);
+});
 ```
 
 ## API References
@@ -41,7 +41,11 @@ $('#<device-id>').on('data', function(data) {
 
 #### `data`
 
-Emitted when receive valid infrared signal.
+Emits on valid infrared signals received, calls the listener with the data received.
+And the data emitted is an array of numbers that represent time spans (in μs) of high-level and low-level signals.
+
+A high-level time span is ORed with `0x01000000`.
+For example, if a high-level signal lasts 500 (`0x000001f4`) μs, the correspondent signal number is then `0x010001f4`.
 
 ## Contributing
 
