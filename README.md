@@ -39,6 +39,10 @@ $('#<device-id>').on('data', function(data) {
 
 If you use this driver under `Ruff: 1.2.0`, you should to press the `HRESET` button to reboot the RuffOS after deploying your application.
 
+The data that is emitted by this driver is hard to be understood.
+
+It is recommended to use Infrared Receiver(`IRR-01`) to receive data and forward the data to Infrared Transmitter(`IRT-01`).
+
 ## API References
 
 ### Events
