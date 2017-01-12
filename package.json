@@ -1,6 +1,6 @@
 {
   "name": "ruff-v1-infrared-receiver",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Driver for Infrared Receiver.",
   "author": "Nanchao Inc.",
   "license": "MIT",
@@ -19,7 +19,7 @@
   "main": "src/index.js",
   "device-typings": "typings/device.d.ts",
   "engines": {
-    "ruff": ">=1.2.0 <1.7.0"
+    "ruff": ">=1.2.0 <2.0.0"
   },
   "scripts": {
     "install-sdk": "rvm install --local",
